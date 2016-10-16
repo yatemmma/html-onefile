@@ -1,0 +1,16 @@
+{
+  "name": "html-onefile",
+  "version": "0.0.1",
+  "description": "Integrate the external files into one html file.",
+  "main": "html-onefile.js",
+  "scripts": {
+    "exec": "node index.js"
+  },
+  "bin": "bin/html-onefile",
+  "private": false,
+  "author": "yatemmma",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0"
+  }
+}
