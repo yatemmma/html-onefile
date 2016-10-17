@@ -1,6 +1,6 @@
 {
   "name": "html-onefile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Integrate the external files into one html file.",
   "main": "html-onefile.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "author": "yatemmma",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^0.22.0"
+    "cheerio": "^0.22.0",
+    "sync-request": "^3.0.1"
   }
 }

@@ -10,14 +10,26 @@ function html_onefile(input, output) {
 
   $("script").each(function(index, element) {
     if (this.attribs.src !== undefined) {
-      const script = fs.readFileSync(`${dir}/${this.attribs.src}`, "utf-8")
+      let script = ""
+      if (this.attribs.src.startsWith("http")) {
+        const request = require('sync-request')
+        script = request('GET', this.attribs.src).getBody()
+      } else {
+        script = fs.readFileSync(`${dir}/${this.attribs.src}`, "utf-8")  
+      }
       $(this).replaceWith(`<script>${script}</script>`)
     }
   })
 
   $("link").each(function(index, element) {
     if (this.attribs.rel === "stylesheet") {
-      const stylesheet = fs.readFileSync(`${dir}/${this.attribs.href}`, "utf-8")
+      let stylesheet = ""
+      if (this.attribs.href.startsWith("http")) {
+        const request = require('sync-request')
+        stylesheet = request('GET', this.attribs.href).getBody()
+      } else {
+        stylesheet = fs.readFileSync(`${dir}/${this.attribs.href}`, "utf-8")  
+      }
       $(this).replaceWith(`<style>${stylesheet}</style>`)
     }
   })
